@@ -4,6 +4,7 @@ import com.globant.screens.HomeScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.BeforeMethod;
+import org.testng.asserts.SoftAssert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class BaseTest {
     private static final String PROPERTIES_FILE = "src/test/resources/config.properties";
     private static final Properties properties = new Properties();
     public static AndroidDriver driver;
+    private SoftAssert softAssert = new SoftAssert();
 
     @BeforeMethod(alwaysRun = true)
     public void environmentSetup(){

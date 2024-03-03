@@ -5,14 +5,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-public class HomeScreen extends NavBarPage {
+public class WebviewScreen extends NavBarPage {
 
-
-    // Constructor
-    public HomeScreen(AndroidDriver driver) {
+    public WebviewScreen(AndroidDriver driver) {
         super(driver);
     }
-
-    // Methods
-
 }
