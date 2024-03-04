@@ -18,7 +18,8 @@ public class BaseTest {
     private static final String PROPERTIES_FILE = "src/test/resources/config.properties";
     private static final Properties properties = new Properties();
     public static AndroidDriver driver;
-    private SoftAssert softAssert = new SoftAssert();
+    private static final SoftAssert softAssert = new SoftAssert();
+
 
     @BeforeMethod(alwaysRun = true)
     public void environmentSetup(){
@@ -57,5 +58,9 @@ public class BaseTest {
 
     public static String getCapability(String variable){
         return properties.getProperty(variable);
+    }
+
+    protected SoftAssert getSoftAssert() {
+        return softAssert;
     }
 }
