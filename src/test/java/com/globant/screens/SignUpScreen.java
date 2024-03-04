@@ -39,7 +39,8 @@ public class SignUpScreen extends NavBarPage {
     }
 
     // Press Elements
-    public void pressLoginBtn(){
+    public SuccessfulScreen presssignUpBtn(){
         super.waitAndClick(signUpBtn);
+        return new SuccessfulScreen(super.getDriver());
     }
 }

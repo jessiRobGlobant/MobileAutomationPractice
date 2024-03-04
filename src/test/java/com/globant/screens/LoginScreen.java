@@ -10,7 +10,8 @@ public class LoginScreen extends NavBarPage {
     // Elements
     @AndroidFindBy(uiAutomator = "textContains(\"Login / Sign up\")")
     private WebElement loginHeader;
-
+    @AndroidFindBy(accessibility = "button-sign-up-container")
+    private WebElement signUpBtn;
     @AndroidFindBy(accessibility = "input-email")
     private WebElement inputEmail;
     @AndroidFindBy(accessibility = "input-password")
@@ -53,7 +54,7 @@ public class LoginScreen extends NavBarPage {
     }
 
     public SignUpScreen goSignUp(){
-        super.waitAndClick(loginBtn);
+        super.waitAndClick(signUpBtn);
         return new SignUpScreen(super.driver);
     }
 }

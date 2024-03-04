@@ -3,8 +3,10 @@ package com.globant.utils;
 import com.globant.screens.HomeScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
+import org.testng.log4testng.Logger;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,6 +21,7 @@ public class BaseTest {
     private static final Properties properties = new Properties();
     public static AndroidDriver driver;
     private static final SoftAssert softAssert = new SoftAssert();
+    private static final Logger log = Logger.getLogger(BaseTest.class.getName().getClass());
 
 
     @BeforeMethod(alwaysRun = true)
@@ -54,7 +57,6 @@ public class BaseTest {
         capabilities.setAppPackage(getCapability("appPackage"));
         capabilities.setAppActivity(getCapability("appActivity"));
         capabilities.setAutomationName(getCapability("automationName"));
-
     }
 
     public static String getCapability(String variable){
@@ -63,5 +65,14 @@ public class BaseTest {
 
     protected SoftAssert getSoftAssert() {
         return softAssert;
+    }
+
+    protected void logInfo(String msg){
+        log.info(msg);
+    }
+
+    @AfterTest()
+    public void closeSession(){
+        driver.quit();
     }
 }

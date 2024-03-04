@@ -6,4 +6,9 @@
       <class name="com.globant.tests.MenuBarTest"/>
     </classes>
   </test>
+  <test name="Successful Sign Up" preserve-order="true" >
+    <classes>
+      <class name="com.globant.tests.SignUpTest"/>
+    </classes>
+  </test>
 </suite>
