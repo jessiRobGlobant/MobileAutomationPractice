@@ -14,7 +14,7 @@ public abstract class NavBarPage extends BaseScreen{
     @AndroidFindBy(uiAutomator = "descriptionMatches(\"Webview\")")
     private WebElement webviewNavBar;
 
-    @AndroidFindBy(uiAutomator = "UiSelector().descriptionMatches(\"Login\"))")
+    @AndroidFindBy(uiAutomator = "descriptionMatches(\"Login\")")
     private WebElement loginNavBar;
 
     @AndroidFindBy(accessibility = "Forms")
@@ -52,7 +52,12 @@ public abstract class NavBarPage extends BaseScreen{
     }
 
     public SwipeScreen goSwipe(){
-        super.waitAndClick(formsNavBar);
+        super.waitAndClick(swipeNavBar);
         return new SwipeScreen(this.driver);
+    }
+
+    public DragScreen goDrag(){
+        super.waitAndClick(dragNavBar);
+        return new DragScreen(this.driver);
     }
 }

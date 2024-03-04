@@ -50,9 +50,10 @@ public class BaseTest {
 
     public static void setUpCapabilities(UiAutomator2Options capabilities){
         capabilities.setPlatformName(getCapability("platformName"));
-        capabilities.setPlatformName(getCapability("deviceName"));
-        capabilities.setPlatformName(getCapability("appPackage"));
-        capabilities.setPlatformName(getCapability("appActivity"));
+        capabilities.setDeviceName(getCapability("deviceName"));
+        capabilities.setAppPackage(getCapability("appPackage"));
+        capabilities.setAppActivity(getCapability("appActivity"));
+        capabilities.setAutomationName(getCapability("automationName"));
 
     }
 

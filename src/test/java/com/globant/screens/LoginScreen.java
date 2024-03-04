@@ -13,11 +13,11 @@ public class LoginScreen extends NavBarPage {
 
     @AndroidFindBy(accessibility = "input-email")
     private WebElement inputEmail;
-
     @AndroidFindBy(accessibility = "input-password")
     private WebElement inputPassword;
     @AndroidFindBy(accessibility = "button-LOGIN")
     private WebElement loginBtn;
+
 
 
     public LoginScreen(AndroidDriver driver) {
@@ -31,9 +31,9 @@ public class LoginScreen extends NavBarPage {
     }
 
     public boolean isLoginBtnClickable(){
-        super.waitTillDisplayed(loginBtn);
+        super.waitTillClickable(loginBtn);
         String value = loginBtn.getAttribute("clickable");
-        return Boolean.getBoolean(value);
+        return Boolean.parseBoolean(value);
     }
 
     // Enter data
@@ -50,5 +50,10 @@ public class LoginScreen extends NavBarPage {
     // Press Elements
     public void pressLoginBtn(){
         super.waitAndClick(loginBtn);
+    }
+
+    public SignUpScreen goSignUp(){
+        super.waitAndClick(loginBtn);
+        return new SignUpScreen(super.driver);
     }
 }

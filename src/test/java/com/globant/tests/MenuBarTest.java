@@ -7,24 +7,28 @@ import org.testng.annotations.Test;
 
 public class MenuBarTest extends BaseTest {
 
-    // @BeforeMethod
+    private HomeScreen homeScreen;
+
+    @BeforeMethod
     public void goToHome(){
-        HomeScreen homeScreen = super.getHomeScreen();
+        homeScreen = super.getHomeScreen();
         homeScreen.goHome();
+        homeScreen.waitSomeSeconds(5);
     }
 
     @Test
     public void navigateThorughMenuBar(){
-        HomeScreen homeScreen = super.getHomeScreen();
         WebviewScreen webviewScreen = homeScreen.goWebview();
         assertWebviewScreen(webviewScreen);
-        LoginScreen loginScreen = webviewScreen.goLogin();
+        LoginScreen loginScreen = homeScreen.goLogin();
         assertLoginScreen(loginScreen);
         FormsScreen formsScreen = loginScreen.goForms();
         assertFormsScreen(formsScreen);
         SwipeScreen swipeScreen = formsScreen.goSwipe();
         assertSwipeScreen(swipeScreen);
-        homeScreen = swipeScreen.goHome();
+        DragScreen dragScreen = swipeScreen.goDrag();
+        assertDragScreen(dragScreen);
+        homeScreen = dragScreen.goHome();
         assertHomeScreen(homeScreen);
         super.getSoftAssert().assertAll();
     }
@@ -64,6 +68,15 @@ public class MenuBarTest extends BaseTest {
         super.getSoftAssert().assertTrue(
                 greater,
                 "More than 0 cards in carousel");
+    }
+
+    private void assertDragScreen(DragScreen dragScreen){
+        super.getSoftAssert().assertEquals(
+                dragScreen.getDragHeader(),
+                "Drag and Drop");
+        super.getSoftAssert().assertEquals(
+                dragScreen.getNumOfDropElements(),
+                dragScreen.getNumOfDragElements());
     }
 
     private void assertHomeScreen(HomeScreen homeScreen){

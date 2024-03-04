@@ -28,9 +28,9 @@ public class FormsScreen extends NavBarPage {
         return formsHeader.getText();
     }
     public boolean isActiveBtnClickable(){
-        super.waitTillDisplayed(activeBtn);
+        super.waitTillClickable(activeBtn);
         String value = activeBtn.getAttribute("clickable");
-        return Boolean.getBoolean(value);
+        return Boolean.parseBoolean(value);
     }
 
     public boolean isInactiveBtnClickable(){

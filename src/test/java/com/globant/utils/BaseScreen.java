@@ -46,7 +46,7 @@ public class BaseScreen {
         element.click();
     }
 
-    private void waitSomeSeconds(int seconds){
+    public void waitSomeSeconds(int seconds){
         try{
             Thread.sleep(seconds * 1000L);
         } catch (InterruptedException e) {
