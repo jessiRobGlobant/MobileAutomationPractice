@@ -27,7 +27,7 @@ public class SignUpTest extends BaseTest {
     public void signUpTest(){
         SignUpScreen signUpScreen = loginScreen.goSignUp();
         enterData(this.email, this.password, signUpScreen);
-        SuccessfulScreen successfulScreen = signUpScreen.presssignUpBtn();
+        SuccessfulScreen successfulScreen = signUpScreen.pressSignUpBtn();
         assertSignUpAlert(successfulScreen);
     }
 

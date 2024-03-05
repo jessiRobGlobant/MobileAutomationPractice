@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 public class SignUpScreen extends NavBarPage {
 
     // Elements
+    @AndroidFindBy(accessibility = "button-login-container")
+    private WebElement loginBtn;
     @AndroidFindBy(accessibility = "input-email")
     private WebElement inputEmail;
     @AndroidFindBy(accessibility = "input-password")
@@ -39,8 +41,13 @@ public class SignUpScreen extends NavBarPage {
     }
 
     // Press Elements
-    public SuccessfulScreen presssignUpBtn(){
+    public SuccessfulScreen pressSignUpBtn(){
         super.waitAndClick(signUpBtn);
         return new SuccessfulScreen(super.getDriver());
+    }
+
+    public LoginScreen goLogin(){
+        super.waitAndClick(loginBtn);
+        return new LoginScreen(super.getDriver());
     }
 }

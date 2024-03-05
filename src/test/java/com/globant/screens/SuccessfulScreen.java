@@ -1,6 +1,7 @@
 package com.globant.screens;
 
 import com.globant.utils.BaseScreen;
+import com.globant.utils.NavBarPage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
@@ -32,10 +33,14 @@ public class SuccessfulScreen extends BaseScreen {
     }
 
     // Press elements
-    public BaseScreen pressOK(String backScreen){
+    public LoginScreen pressOKLogin(){
         super.waitAndClick(okLink);
-        return (backScreen.equals("login"))?
-                new LoginScreen(super.getDriver()):
-                new SignUpScreen(super.getDriver());
+        return new LoginScreen(super.getDriver());
     }
+
+    public SignUpScreen pressOKSignUp(){
+        super.waitAndClick(okLink);
+        return new SignUpScreen(super.getDriver());
+    }
+
 }

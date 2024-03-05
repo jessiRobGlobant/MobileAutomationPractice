@@ -49,12 +49,13 @@ public class LoginScreen extends NavBarPage {
     }
 
     // Press Elements
-    public void pressLoginBtn(){
+    public SuccessfulScreen pressLoginBtn(){
         super.waitAndClick(loginBtn);
+        return new SuccessfulScreen(super.getDriver());
     }
 
     public SignUpScreen goSignUp(){
         super.waitAndClick(signUpBtn);
-        return new SignUpScreen(super.driver);
+        return new SignUpScreen(super.getDriver());
     }
 }

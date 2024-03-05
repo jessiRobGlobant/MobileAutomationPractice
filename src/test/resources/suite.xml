@@ -11,4 +11,9 @@
       <class name="com.globant.tests.SignUpTest"/>
     </classes>
   </test>
+  <test name="Successful Login" preserve-order="true" >
+    <classes>
+      <class name="com.globant.tests.LoginTest"/>
+    </classes>
+  </test>
 </suite>
