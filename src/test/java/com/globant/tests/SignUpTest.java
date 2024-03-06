@@ -29,6 +29,7 @@ public class SignUpTest extends BaseTest {
         enterData(this.email, this.password, signUpScreen);
         SuccessfulScreen successfulScreen = signUpScreen.pressSignUpBtn();
         assertSignUpAlert(successfulScreen);
+        super.getSoftAssert().assertAll();
     }
 
     private void enterData(String email, String password, SignUpScreen signUpScreen){

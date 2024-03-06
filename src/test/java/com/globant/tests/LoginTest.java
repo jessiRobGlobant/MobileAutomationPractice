@@ -32,6 +32,7 @@ public class LoginTest extends BaseTest {
         loginScreen.enterPassword(this.password);
         SuccessfulScreen successfulScreen = loginScreen.pressLoginBtn();
         assertLoginAlert(successfulScreen);
+        super.getSoftAssert().assertAll();
     }
 
     public void assertLoginAlert(SuccessfulScreen successfulScreen){
